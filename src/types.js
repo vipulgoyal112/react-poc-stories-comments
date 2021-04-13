@@ -1,0 +1,2 @@
+export const STORY_ITEMS = 'STORY_ITEMS';
+export const STORY_VS_COMMNETS = 'STORY_VS_COMMNETS';
