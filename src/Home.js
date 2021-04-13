@@ -5,7 +5,7 @@ import './Home.css';
 
 const Home = props => {
 
-  const { storyItems, commentItems, getItemsApi } = useContext(HomeContext);
+  const { storyItems, comments, getItemsApi } = useContext(HomeContext);
   useEffect(() => {
     getItemsApi();  
   }, []);
@@ -13,17 +13,25 @@ const Home = props => {
   return (
     <div className="home">
       <div>Stories</div>
-      {console.log('stories : ', storyItems)}
-      {storyItems.map((item)=>{
-        <div>{item.title}</div>
-      })}
-      {storyItems.map((item, index) => {
+      {
+        storyItems.map((item)=>{
           return (
-              <Fragment key={index}>
-                  <div>{item.title}</div>
-              </Fragment>
+            <div key={item.id}>
+              <div>{item.title}</div>
+            </div>
           )
-      })}
+        })
+      }
+      <div>Comments</div>
+      {
+        comments.map((item)=>{
+          return (
+            <div key={item.id}>
+              <div>{item.title}</div>
+            </div>
+          )
+        })
+      }
     </div>
   );
 }

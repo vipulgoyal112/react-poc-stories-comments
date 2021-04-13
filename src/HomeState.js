@@ -5,13 +5,13 @@ import HomeReducer from './HomeReducer.js';
 import {getStoriesAndComments} from './utils.js'
 import {
     STORY_ITEMS,
-    STORY_VS_COMMNETS
+    COMMENTS
 } from './types';
 
 const HomeState = props => {
     const initialState = {
         storyItems: [],
-        storyVsComments: {}
+        comments: []
     };
 
     const [state, dispatch] = useReducer(HomeReducer, initialState);
@@ -24,12 +24,13 @@ const HomeState = props => {
         .then(res => {
             //TODO : get STORY_VS_COMMNETS , STORY_VS_COMMNETS from utility
             let arr = getStoriesAndComments(res.data);
+            console.log('arr : ', arr)
             dispatch({
                 type: STORY_ITEMS,
                 payload: arr[0]
             });
             dispatch({
-                type: STORY_VS_COMMNETS,
+                type: COMMENTS,
                 payload: arr[1]
             });
         });
@@ -41,7 +42,7 @@ const HomeState = props => {
         <HomeContext.Provider
             value={{
                 storyItems: state.storyItems,
-                storyVsComments: state.storyVsComments,
+                comments: state.comments,
                 getItemsApi,
                 homeStateDispatch: dispatch
             }}

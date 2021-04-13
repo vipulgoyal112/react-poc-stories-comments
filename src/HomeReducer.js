@@ -1,19 +1,20 @@
 import {
     STORY_ITEMS,
-    STORY_VS_COMMNETS
+    COMMENTS
 } from './types';
 
 export default (state, action) => {
+    console.log('payload', action);
 switch (action.type) {
     case STORY_ITEMS:
     return {
         ...state,
         storyItems: action.payload
     };
-    case STORY_VS_COMMNETS:
+    case COMMENTS:
     return {
         ...state,
-        storyVsComments: action.payload
+        comments: action.payload
     };
     default:
         return state;
