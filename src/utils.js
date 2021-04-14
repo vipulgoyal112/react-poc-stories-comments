@@ -1,6 +1,8 @@
 export const getStoriesAndComments = (items) => {
 
-  console.log('items : ', items)
+  if (items.lenght == 0 ) {
+    return [[], []];
+  }
 
   items.sort(function(x, y){
     return y.time - x.time;
@@ -25,7 +27,6 @@ export const getStoriesAndComments = (items) => {
     }    
   });
 
-  console.log('ss : ', stories, comments);
   return [stories, comments]
 
 }

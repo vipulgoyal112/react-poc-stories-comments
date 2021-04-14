@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home.js';
 
 import HomeState from './HomeState.js';

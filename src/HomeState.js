@@ -22,9 +22,7 @@ const HomeState = props => {
             'Authorization': localStorage.getItem('auth-token')
         }})
         .then(res => {
-            //TODO : get STORY_VS_COMMNETS , STORY_VS_COMMNETS from utility
             let arr = getStoriesAndComments(res.data);
-            console.log('arr : ', arr)
             dispatch({
                 type: STORY_ITEMS,
                 payload: arr[0]

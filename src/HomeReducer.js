@@ -4,7 +4,6 @@ import {
 } from './types';
 
 export default (state, action) => {
-    console.log('payload', action);
 switch (action.type) {
     case STORY_ITEMS:
     return {
